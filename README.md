@@ -31,7 +31,7 @@ Please note that this add-on is currently under active development. Some core Vi
 ## Installation 🛠️
 
 ### Manual Installation (Development)
-1. Option: Just download via the Anki-Addon page you came from. (Follow instructions there.)
+1. Option: Just download via the Anki-Addon page you came from. (Follow instructions there.): https://ankiweb.net/shared/info/978943807?cb=1779547478922
 
 2. Option: Clone this repository into your Anki add-ons folder:
    ```bash

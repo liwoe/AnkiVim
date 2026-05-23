@@ -6,7 +6,7 @@ A lightweight, robust Anki add-on that brings modal editing and Vim/Neovim keybi
 
 - **Modal Editing:** Toggle between standard input and Vim commands effortlessly.
 - **Core Motions:** Seamlessly navigate text fields using standard `h`, `j`, `k`, `l` movements.
-- **Registers:** Basic support for yank (`y`), delete (`d`), and paste (`p`) operations.
+- **Registers:** Basics for delete (`d`). The yank (`y`) and paste (`p`) commands will be implemented soon. 
 - **Operators & Motions:** Standard combinations like `w`, `b`, `e`, `0`, `$`, `gg`, `G`, etc.
 - **Native Look:** Blends cleanly into Anki's native editor styling (`native_vim.css`).
 
@@ -15,8 +15,8 @@ A lightweight, robust Anki add-on that brings modal editing and Vim/Neovim keybi
 The project is structured with modularity in mind, splitting the JavaScript engine from the Anki Python wrapper:
 - `__init__.py`: Add-on entry point and Python-to-JavaScript communication bridge.
 - `manifest.json` / `meta.json`: Anki add-on configurations.
-- `vim_engine.js`: Core orchestrator managing the input state and modes.
-- `vim_01_core.js` to `vim_05_commands.js`: Modular logic separating core operations, registers, motions, operators, and commands.
+- `parser.py`: Is the core for this project. Instead of directly handeling commands etc. I wrote an own python parser.
+- `/UI`: For this project to work I needed javascript injections. The parsed commands get handled in this folder. (I will rename this folder soon)
 
 ---
 
@@ -24,21 +24,20 @@ The project is structured with modularity in mind, splitting the JavaScript engi
 
 Please note that this add-on is currently under active development. Some core Vim functionalities are **not fully implemented yet**:
 
-* **Visual Mode:** Visual (`v`) and Visual Line (`V`) selections are not yet available.
-* **Command-Line Mode:** Complex ex-commands (via `:`) and advanced parsing are still in a minimal state.
-* **Complex Combos:** Certain multi-stroke operators or edge-case text objects are still being refactored.
-
-Contributions, feedback, and bug reports are welcome!
+* **Visual Mode:** Visual (`v`) and Visual Line (`V`) selections: The commands / motions don't work in here yet.
+* **Command-Line Mode:** Complex commands (via `:`) and advanced parsing are still not implemented at all.
+* **Complex Combos:** Certain multi-stroke operators or edge-case text objects are still being refactored. Like (`<ul>') tags.
 
 ## Installation 🛠️
 
 ### Manual Installation (Development)
-1. Clone this repository into your Anki add-ons folder:
+1. Option: Just download via the Anki-Addon page you came from. (Follow instructions there.)
+
+2. Option: Clone this repository into your Anki add-ons folder:
    ```bash
-   # Windows (Default path)
    cd %APPDATA%\Anki2\addons21
    git clone [https://github.com/liwoe/AnkiVim.git](https://github.com/liwoe/AnkiVim.git) BetterAnkiVim
 
 ## Contribution
-Feel free to commit to my project and report Issues.
-It may take time to fix them as I dont have much time currently.
+Feel free to commit to my project and report Issues/Bugs.
+It may take some time for to fix them and implement other stuff as I dont have much time currently.

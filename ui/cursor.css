@@ -1,0 +1,17 @@
+/* --- NORMAL MODE --- */
+body.vim-normal {
+    /* Hide the blinking line so we only see the block */
+    caret-color: transparent !important; 
+}
+
+/* Style the highlighted character to look like a Vim block cursor */
+body.vim-normal ::selection {
+    background-color: rgba(128, 128, 128, 0.5) !important;
+    color: inherit !important;
+}
+
+/* --- INSERT MODE --- */
+body.vim-insert {
+    /* Bring the normal blinking text cursor back */
+    caret-color: auto !important; 
+}
